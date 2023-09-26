@@ -1,14 +1,28 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const ShortCircuitExamples = () => {
-  // falsy
-  const [text, setText] = useState('');
-  // truthy
-  const [name, setName] = useState('susan');
-  const [user, setUser] = useState({ name: 'john' });
-  const [isEditing, setIsEditing] = useState(false);
+	// falsy
+	const [text, setText] = useState("");
+	// truthy
+	const [name, setName] = useState("susan");
+	const [user, setUser] = useState({ name: "john" });
+	const [isEditing, setIsEditing] = useState(true);
 
-  return <h2>short circuit - examples</h2>;
+	return (
+		<div>
+			{" "}
+			{text || "default value"}
+			{text && (
+				<div>
+					<h2>whatever return</h2>
+					<h2>{name}</h2>
+					<button type="button" className="btn">
+						{isEditing ? "Edit" : "Add"}
+					</button>
+				</div>
+			)}
+		</div>
+	);
 };
 
 export default ShortCircuitExamples;
